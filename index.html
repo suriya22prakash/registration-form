@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form class="main" action="">
+        <h1>Registration form</h1>
+        <h3>Name:</h3>
+        <input id="name1" type="text">
+        <p id="error1"></p>
+        <h3>Email:</h3>
+        <input id="email1" type="email">
+        <p id="error2"></p>
+        <h3>Password:</h3>
+        <input id="password1" type="password">
+        <p id="error3"></p>
+        <button id="btn">SUBMIT</button>
+    </form>
+
+  <script>
+    var name1 = document.getElementById("name1")
+    var email1 = document.getElementById("email1")
+    var password1 = document.getElementById("password1")
+    var error1 = document.getElementById("error1")
+    var error2 = document.getElementById("error2")
+    var error3 = document.getElementById("error3")
+    var btn = document.getElementById("btn")
+
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    // named functions, so we can call them from anywhere
+    function checkName() {
+        if (name1.value.trim() === "") {
+            error1.textContent = "Name is required";
+            return false;
+        } else {
+            error1.textContent = "";
+            return true;
+        }
+    }
+
+    function checkEmail() {
+        if (!emailPattern.test(email1.value)) {
+            error2.textContent = "Please enter a valid email address.";
+            return false;
+        } else {
+            error2.textContent = "";
+            return true;
+        }
+    }
+
+    function checkPassword() {
+        if (password1.value.trim().length < 8) {
+            error3.textContent = "Password must be at least 8 characters";
+            return false;
+        } else {
+            error3.textContent = "";
+            return true;
+        }
+    }
+
+    // attach them to their events, same as before
+    name1.addEventListener("blur", checkName);
+    email1.addEventListener("input", checkEmail);
+    password1.addEventListener("input", checkPassword);
+
+    // reuse the SAME functions on submit
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        var isNameValid = checkName();
+        var isEmailValid = checkEmail();
+        var isPasswordValid = checkPassword();
+
+        if (isNameValid && isEmailValid && isPasswordValid) {
+            alert("register completed");
+        }
+    })
+</script>
+</body>
+
+</html>

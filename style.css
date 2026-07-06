@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    position: relative;
+}
+
+/* dark overlay layer */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.main {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 350px;
+    text-align: center;
+}
+
+.main h1 {
+    margin-bottom: 20px;
+    color: #222;
+    font-size: 24px;
+}
+
+.main h3 {
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    color: #444;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.main input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.main input:focus {
+    border-color: #4a90d9;
+}
+
+.main p {
+    color: #e63946;
+    font-size: 12px;
+    text-align: left;
+    min-height: 16px;
+    margin-top: 4px;
+}
+
+.main button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color:
+}
